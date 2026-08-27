@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:TravelGuide.ViewModels"
+    x:Class="TravelGuide.Views.TipsPage"
+    Style="{StaticResource PageStyle}"
+    Shell.NavBarIsVisible="False">
+
+    <ContentPage.BindingContext>
+        <vm:TipsViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0" Padding="20,54,20,30">
+
+            <Label Text="Travel Tips" Style="{StaticResource PageTitleLabel}" />
+            <Label
+                Text="Wisdom from seasoned wanderers"
+                Style="{StaticResource PageSubtitleLabel}"
+                Margin="0,4,0,24" />
+
+            <CollectionView
+                ItemsSource="{Binding Tips}"
+                SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="14" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                            Style="{StaticResource CardFrame}"
+                            Padding="16,14">
+
+                            <Grid ColumnDefinitions="52,*" ColumnSpacing="14">
+
+                                <Frame
+                                    Grid.Column="0"
+                                    CornerRadius="12"
+                                    Padding="0"
+                                    WidthRequest="48"
+                                    HeightRequest="48"
+                                    BackgroundColor="{StaticResource PrimaryLightColor}"
+                                    BorderColor="Transparent"
+                                    HasShadow="False"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Start">
+                                    <Label
+                                        Text="{Binding Icon}"
+                                        FontSize="24"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center" />
+                                </Frame>
+
+                                <VerticalStackLayout Grid.Column="1" Spacing="4" VerticalOptions="Center">
+                                    <Label
+                                        Text="{Binding Title}"
+                                        FontFamily="Georgia"
+                                        FontSize="14"
+                                        FontAttributes="Bold"
+                                        TextColor="{StaticResource ForegroundColor}" />
+                                    <Label
+                                        Text="{Binding Description}"
+                                        Style="{StaticResource MutedLabel}"
+                                        LineBreakMode="WordWrap" />
+                                </VerticalStackLayout>
+
+                            </Grid>
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnTipTapped"
+                                    CommandParameter="{Binding Title}" />
+                            </Frame.GestureRecognizers>
+
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Frame
+                Margin="0,28,0,0"
+                Padding="20,16"
+                CornerRadius="16"
+                BorderColor="Transparent"
+                HasShadow="False">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#D4764E" Offset="0.0" />
+                        <GradientStop Color="#E8A87C" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <VerticalStackLayout Spacing="6">
+                    <Label
+                        Text="&quot;The world is a book, and those who do not travel read only one page.&quot;"
+                        FontFamily="Georgia"
+                        FontSize="14"
+                        FontAttributes="Italic"
+                        TextColor="{StaticResource WhiteColor}"
+                        LineHeight="1.5" />
+                    <Label
+                        Text="— Saint Augustine"
+                        FontSize="12"
+                        TextColor="#CCFFFFFF"
+                        HorizontalOptions="End" />
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

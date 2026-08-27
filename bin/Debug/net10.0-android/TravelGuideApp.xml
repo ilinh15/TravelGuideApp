@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TravelGuideApp</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "P:TravelGuide.Models.Destination.Name" -->
+        <member name="P:TravelGuide.Models.Destination.Location">
+            <summary>City / country line shown beneath the name.</summary>
+        </member>
+        <member name="P:TravelGuide.Models.Destination.Description">
+            <summary>Two-line description shown below the image.</summary>
+        </member>
+        <member name="P:TravelGuide.Models.Destination.Rating">
+            <summary>Star rating out of 5.</summary>
+        </member>
+        <member name="P:TravelGuide.Models.Destination.PlaceholderColor">
+            <summary>
+            Hex color kept for non-UI use or future fallbacks (e.g. loading placeholders).
+            </summary>
+        </member>
+        <member name="P:TravelGuide.Models.Destination.HeroImage">
+            <summary>
+            Filename of a bundled MAUI image under Resources/Images (e.g. "kyoto.jpg").
+            </summary>
+        </member>
+        <member name="T:TravelGuide.ViewModels.DestinationsViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="F:TravelGuide.ViewModels.DestinationsViewModel.toggleFavouriteCommand">
+            <summary>The backing field for <see cref="P:TravelGuide.ViewModels.DestinationsViewModel.ToggleFavouriteCommand"/>.</summary>
+        </member>
+        <member name="P:TravelGuide.ViewModels.DestinationsViewModel.ToggleFavouriteCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:TravelGuide.ViewModels.DestinationsViewModel.ToggleFavourite(TravelGuide.ViewModels.DestinationCardItem)"/>.</summary>
+        </member>
+        <member name="T:TravelGuide.ViewModels.DestinationCardItem">
+            <inheritdoc/>
+        </member>
+        <member name="P:TravelGuide.ViewModels.DestinationCardItem.HeroImage">
+            <summary>Bundled MAUI image filename under Resources/Images.</summary>
+        </member>
+        <member name="P:TravelGuide.ViewModels.DestinationCardItem.IsFavourite">
+            <inheritdoc cref="F:TravelGuide.ViewModels.DestinationCardItem.isFavourite"/>
+        </member>
+        <member name="M:TravelGuide.ViewModels.DestinationCardItem.OnIsFavouriteChanged(System.Boolean)">
+            <summary>Executes the logic for when <see cref="P:TravelGuide.ViewModels.DestinationCardItem.IsFavourite"/> just changed.</summary>
+            <param name="value">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:TravelGuide.ViewModels.DestinationCardItem.IsFavourite"/> is changed.</remarks>
+        </member>
+        <member name="T:TravelGuide.ViewModels.HomeViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="P:TravelGuide.ViewModels.HomeViewModel.Categories">
+            <summary>All available category labels shown in the pill row.</summary>
+        </member>
+        <member name="M:TravelGuide.ViewModels.HomeViewModel.SelectCategory(TravelGuide.ViewModels.CategoryItem)">
+            <summary>
+            Called when the user taps a category pill.
+            Deselects all others and selects the tapped one so the terracotta
+            highlight moves correctly.
+            </summary>
+        </member>
+        <member name="F:TravelGuide.ViewModels.HomeViewModel.selectCategoryCommand">
+            <summary>The backing field for <see cref="P:TravelGuide.ViewModels.HomeViewModel.SelectCategoryCommand"/>.</summary>
+        </member>
+        <member name="P:TravelGuide.ViewModels.HomeViewModel.SelectCategoryCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:TravelGuide.ViewModels.HomeViewModel.SelectCategory(TravelGuide.ViewModels.CategoryItem)"/>.</summary>
+        </member>
+        <member name="T:TravelGuide.ViewModels.CategoryItem">
+            <summary>
+            Represents a single category pill. Inherits ObservableObject so the UI
+            reacts instantly when IsSelected is toggled.
+            </summary>
+            <inheritdoc/>
+        </member>
+        <member name="P:TravelGuide.ViewModels.CategoryItem.IsSelected">
+            <inheritdoc cref="F:TravelGuide.ViewModels.CategoryItem.isSelected"/>
+        </member>
+        <member name="T:TravelGuide.Resource">
+            <summary>
+            Android Resource Designer class.
+            Exposes the Android Resource designer assembly into the project Namespace.
+            </summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsFavourite">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsFavourite" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsSelected">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsSelected" generated properties.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsFavourite">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsFavourite" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsSelected">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsSelected" generated properties.</summary>
+        </member>
+    </members>
+</doc>

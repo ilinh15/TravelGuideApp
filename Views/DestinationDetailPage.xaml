@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TravelGuide.Views.DestinationDetailPage"
+    Style="{StaticResource PageStyle}"
+    Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="20,54,20,24" Spacing="16">
+
+                <Grid HeightRequest="260" IsClippedToBounds="True">
+                    <Image x:Name="HeroImage"
+                           Aspect="AspectFill"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Fill" />
+                    <BoxView VerticalOptions="End" HeightRequest="120">
+                        <BoxView.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="Transparent" Offset="0.0"/>
+                                <GradientStop Color="#CC000000"   Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </BoxView.Background>
+                    </BoxView>
+                    <Label x:Name="TitleLabel"
+                           VerticalOptions="End"
+                           Margin="16,0,16,14"
+                           Style="{StaticResource PageTitleLabel}"
+                           TextColor="White" />
+                </Grid>
+
+                <Label x:Name="Para1Label"
+                       Style="{StaticResource MutedLabel}"
+                       FontSize="14"
+                       LineHeight="1.35" />
+
+                <Label x:Name="Para2Label"
+                       Style="{StaticResource MutedLabel}"
+                       FontSize="14"
+                       LineHeight="1.35" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Frame Grid.Row="1"
+               x:Name="BackFrame"
+               Margin="20,0,20,22"
+               Padding="0"
+               CornerRadius="14"
+               HeightRequest="44"
+               BackgroundColor="{StaticResource PrimaryColor}"
+               BorderColor="Transparent"
+               HasShadow="True">
+            <Grid Padding="14,8" ColumnDefinitions="Auto,*">
+                <Label Text="←"
+                       TextColor="White"
+                       FontSize="16"
+                       VerticalOptions="Center" />
+                <Label Grid.Column="1"
+                       Text="Back"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       FontSize="14"
+                       VerticalOptions="Center" />
+            </Grid>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnBackTapped" />
+            </Frame.GestureRecognizers>
+        </Frame>
+    </Grid>
+</ContentPage>
+

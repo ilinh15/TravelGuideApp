@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:TravelGuide.ViewModels"
+    x:Class="TravelGuide.Views.HomePage"
+    Style="{StaticResource PageStyle}"
+    Shell.NavBarIsVisible="False">
+
+    <ContentPage.BindingContext>
+        <vm:HomeViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+
+            <!-- ROW 0 — Hero -->
+            <Grid Grid.Row="0" HeightRequest="340" IsClippedToBounds="True">
+
+                <Image Source="homepage_background.jpg"
+                       Aspect="AspectFill"
+                       HorizontalOptions="Fill"
+                       VerticalOptions="Fill">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnHeroImageTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <BoxView VerticalOptions="End" HeightRequest="220">
+                    <BoxView.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="Transparent" Offset="0.0" />
+                            <GradientStop Color="#CC2D2520"   Offset="1.0" />
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+
+                <VerticalStackLayout VerticalOptions="End" Padding="24,0,24,36" Spacing="8">
+
+                    <Label Text="D I S C O V E R"
+                           FontSize="11" FontAttributes="Bold"
+                           TextColor="#AAFFFFFF" CharacterSpacing="3" />
+
+                    <Label Text="Explore the"
+                           FontFamily="Georgia" FontSize="28"
+                           FontAttributes="Bold" TextColor="White" />
+                    <Label Text="World's Wonders"
+                           FontFamily="Georgia" FontSize="28"
+                           FontAttributes="Bold" TextColor="White"
+                           Margin="0,-4,0,0" />
+
+                    <Button Text="Start Exploring →"
+                            Style="{StaticResource PrimaryButton}"
+                            HorizontalOptions="Start"
+                            Clicked="OnStartExploringClicked" />
+
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- ROW 1 — Search Bar -->
+            <Frame x:Name="SearchCard"
+                   Grid.Row="1" Style="{StaticResource SearchCardFrame}"
+                   Margin="20,-22,20,0" ZIndex="10">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSearchCardTapped" />
+                    <PointerGestureRecognizer PointerEntered="OnSearchPointerEntered"
+                                              PointerExited="OnSearchPointerExited" />
+                </Frame.GestureRecognizers>
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="🔍" FontSize="18" VerticalOptions="Center" />
+                    <Label Text="Search destinations..."
+                           Style="{StaticResource MutedLabel}"
+                           VerticalOptions="Center" FontSize="14" />
+                </HorizontalStackLayout>
+            </Frame>
+
+            <!-- ROW 2 — Category  -->
+            <CollectionView Grid.Row="2"
+                            ItemsSource="{Binding Categories}"
+                            Margin="0,20,0,0"
+                            HeightRequest="52">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView Padding="4,4">
+                            <Frame Padding="16,8" CornerRadius="20"
+                                   HasShadow="False" BorderColor="Transparent">
+                                <Frame.Triggers>
+                                    <DataTrigger TargetType="Frame"
+                                                 Binding="{Binding IsSelected}" Value="True">
+                                        <Setter Property="BackgroundColor"
+                                                Value="{StaticResource PrimaryColor}" />
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Frame"
+                                                 Binding="{Binding IsSelected}" Value="False">
+                                        <Setter Property="BackgroundColor"
+                                                Value="{StaticResource SecondaryColor}" />
+                                    </DataTrigger>
+                                </Frame.Triggers>
+
+                                <Label Text="{Binding Label}"
+                                       FontSize="13" FontAttributes="Bold">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label"
+                                                     Binding="{Binding IsSelected}" Value="True">
+                                            <Setter Property="TextColor"
+                                                    Value="{StaticResource WhiteColor}" />
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label"
+                                                     Binding="{Binding IsSelected}" Value="False">
+                                            <Setter Property="TextColor"
+                                                    Value="{StaticResource ForegroundColor}" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnCategoryPillTapped" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- ROW 3 — Section Header -->
+            <Grid Grid.Row="3" Margin="20,24,20,12" ColumnDefinitions="*,Auto">
+                <Label Grid.Column="0" Text="Popular Destinations"
+                       Style="{StaticResource SectionHeadingLabel}" />
+                <Label Grid.Column="1" Text="See All"
+                       FontSize="13" TextColor="{StaticResource PrimaryColor}"
+                       FontAttributes="Bold" VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSeeAllTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+
+            <!-- ROW 4 — Popular Destination Cards -->
+            <CollectionView Grid.Row="4"
+                            ItemsSource="{Binding PopularDestinations}"
+                            Margin="0,0,0,30"
+                            HeightRequest="210">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="14" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView Padding="0,4,0,8" WidthRequest="148">
+                            <Frame CornerRadius="16" Padding="0"
+                                   IsClippedToBounds="True" HasShadow="True"
+                                   BorderColor="Transparent" HeightRequest="196">
+                                <Grid>
+                                    <Image Source="{Binding HeroImage}"
+                                           Aspect="AspectFill"
+                                           HorizontalOptions="Fill"
+                                           VerticalOptions="Fill" />
+                                    <BoxView VerticalOptions="End" HeightRequest="90">
+                                        <BoxView.Background>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                <GradientStop Color="Transparent" Offset="0.0" />
+                                                <GradientStop Color="#CC000000"   Offset="1.0" />
+                                            </LinearGradientBrush>
+                                        </BoxView.Background>
+                                    </BoxView>
+                                    <VerticalStackLayout VerticalOptions="End"
+                                                         Padding="12,0,12,12" Spacing="2">
+                                        <Label Text="{Binding Name}"
+                                               Style="{StaticResource CardOverlayNameLabel}"
+                                               FontSize="14" />
+                                        <Label Text="{Binding Location}"
+                                               Style="{StaticResource CardOverlayCountryLabel}" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnDestinationCardTapped"
+                                                          CommandParameter="{Binding Name}" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>
