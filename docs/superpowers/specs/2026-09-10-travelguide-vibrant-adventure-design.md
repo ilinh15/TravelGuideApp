@@ -107,11 +107,11 @@ A compact white or mint advice card with an intentionally styled icon badge, con
 - High-positioned eyebrow, bold “Go where wonder leads.” style headline, and concise supporting copy.
 - Clear breathing room before the floating search panel.
 - Animated category chips.
-- “Popular now” editorial section led by a large Bali card, rating badge, favourite action, and an overlapping mint travel-season note.
+- “Popular now” editorial section led by a large Bali card, rating badge, favourite action, and a compact in-image “Best season · May–Oct” badge positioned opposite the rating.
 - Compact deep-teal travel-note panel for visual rhythm.
 - Floating custom bottom navigation.
 
-The approved Home reference is Superdesign draft `b6022f80-d9b4-48d9-80a3-aa412f045f56`, version 3.
+The current Home reference is Superdesign draft `b6022f80-d9b4-48d9-80a3-aa412f045f56`, version 4.
 
 ### Destinations
 
