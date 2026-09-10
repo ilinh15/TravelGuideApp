@@ -53,7 +53,7 @@ namespace TravelGuide.ViewModels
         highlight moves correctly.*/
        
         [RelayCommand]
-        private void SelectCatey(CategoryItem selected)
+        private void SelectCategory(CategoryItem selected)
         {
             foreach (var cat in Categories)
                 cat.IsSelected = cat == selected;
