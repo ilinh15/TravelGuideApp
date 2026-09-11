@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "targets": {
+    "/": {
+      "targetKind": "existing-ui",
+      "projectId": "568a3c74-213c-4bc4-ab1c-7aa297ce403f",
+      "baselineDraftId": "b6022f80-d9b4-48d9-80a3-aa412f045f56",
+      "activeDraftId": "b6022f80-d9b4-48d9-80a3-aa412f045f56",
+      "designSystemPath": ".superdesign/design-system.md",
+      "referenceIds": [
+        "0a9a4f7e-9a37-4c9a-8b3b-512f381731cd",
+        "e7651824-2858-4981-ada2-fca4a426c681"
+      ],
+      "contextFiles": [
+        ".superdesign/design-system.md",
+        "AppShell.xaml",
+        "Views/HomePage.xaml",
+        "ViewModels/HomeViewModel.cs",
+        "Resources/Styles/Colors.xaml",
+        "Resources/Styles/Styles.xaml"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "99f87f9ddb1b5815979b86550fce9ae426c0c03f2daba2411bfd902a2f2f0596",
+        "AppShell.xaml": "02ee52bdb49c658e4fae6f1d9dc58164ad7fbfcabf842fda76f758ec0f436d1c",
+        "Views/HomePage.xaml": "d49b271058af06abc9c6558f49468eca97b488d0b48103cc1723fa034e1a6b4d",
+        "ViewModels/HomeViewModel.cs": "72b94da4f8ee3470c4960db85141fbbb8cd73d3466fca35797de1a6f237aedf6",
+        "Resources/Styles/Colors.xaml": "a9f2d58e02014df35ba26726214e27e0b4ee44a9d394e2ff7be841b6a0bde500",
+        "Resources/Styles/Styles.xaml": "d391787be80e409828c1b58ddde6090a132126cc5f3c6412744f0296b152e933"
+      },
+      "components": [
+        {
+          "name": "BottomTabNavigation",
+          "id": "7d56f025-cb95-4a85-8e7b-438fc98f5dd9",
+          "sourcePath": "AppShell.xaml"
+        }
+      ],
+      "drafts": {
+        "b6022f80-d9b4-48d9-80a3-aa412f045f56": {
+          "title": "TravelGuide — Vibrant Adventure",
+          "visualDirection": "selected Vibrant Adventure Home with compact in-image best-season badge and floating line-icon navigation",
+          "currentVersion": 4
+        }
+      },
+      "updatedAt": "2026-09-09T19:30:00Z"
+    }
+  }
+}
+

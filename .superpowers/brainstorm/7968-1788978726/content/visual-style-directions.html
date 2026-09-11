@@ -1,0 +1,96 @@
+<style>
+  .direction-grid { display:grid; grid-template-columns:repeat(3,minmax(240px,1fr)); gap:20px; margin-top:24px; }
+  .direction { padding:0 !important; overflow:hidden; border-radius:24px !important; }
+  .phone { min-height:510px; position:relative; overflow:hidden; border-radius:20px 20px 0 0; }
+  .hero { height:235px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; background-size:cover; background-position:center; position:relative; }
+  .hero:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.72)); }
+  .hero > * { position:relative; z-index:1; }
+  .topline { display:flex; justify-content:space-between; color:white; font-size:12px; font-weight:700; }
+  .hero h3 { color:white; font-size:29px; line-height:1.02; margin:0; max-width:210px; }
+  .hero p { color:rgba(255,255,255,.82); margin:7px 0 0; font-size:12px; }
+  .body { padding:18px; min-height:240px; }
+  .search { padding:12px 14px; border-radius:14px; font-size:12px; margin-top:-36px; position:relative; z-index:2; box-shadow:0 12px 28px rgba(0,0,0,.13); }
+  .chips { display:flex; gap:7px; margin:18px 0 14px; }
+  .chip { padding:6px 10px; border-radius:999px; font-size:10px; font-weight:700; }
+  .small-title { display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:800; margin-bottom:10px; }
+  .mini-cards { display:grid; grid-template-columns:1.15fr .85fr; gap:9px; }
+  .mini { height:112px; border-radius:15px; background-size:cover; background-position:center; padding:10px; display:flex; align-items:flex-end; color:white; font-size:11px; font-weight:800; box-shadow:inset 0 -55px 40px -35px rgba(0,0,0,.85); }
+  .card-body { padding:16px 18px 18px !important; }
+  .card-body h3 { margin:0 0 5px; }
+  .badge { display:inline-block; margin-top:10px; padding:5px 9px; border-radius:999px; font-size:10px; font-weight:800; }
+  .editorial .phone { background:#f4efe8; }
+  .editorial .hero { background-image:url('/files/homepage_background.jpg'); }
+  .editorial .hero h3 { font-family:Georgia,serif; }
+  .editorial .body { color:#27231f; }
+  .editorial .search { background:#fffaf4; }
+  .editorial .chip { background:#e7ddd0; color:#5c5146; }
+  .editorial .chip.active,.editorial .badge { background:#db6b3d; color:white; }
+  .tropical .phone { background:#effbf8; }
+  .tropical .hero { background-image:url('/files/marrakech_souk.jpg'); }
+  .tropical .hero:after { background:linear-gradient(135deg,rgba(1,106,112,.08),rgba(4,46,54,.78)); }
+  .tropical .body { color:#073f43; }
+  .tropical .search { background:white; border:2px solid #d7f1ec; }
+  .tropical .chip { background:#d7f1ec; color:#087b78; }
+  .tropical .chip.active,.tropical .badge { background:#ff6b57; color:white; }
+  .alpine .phone { background:#f4f7fb; }
+  .alpine .hero { background-image:url('/files/kyoto_temples.jpg'); }
+  .alpine .hero:after { background:linear-gradient(180deg,rgba(8,30,54,.05),rgba(8,30,54,.85)); }
+  .alpine .body { color:#102a43; }
+  .alpine .search { background:rgba(255,255,255,.96); }
+  .alpine .chip { background:#dfeaf3; color:#315b78; }
+  .alpine .chip.active,.alpine .badge { background:#1b6d8f; color:white; }
+  @media(max-width:900px){ .direction-grid{grid-template-columns:1fr;} .phone{min-height:480px;} }
+</style>
+
+<h2>Which travel personality should lead the redesign?</h2>
+<p class="subtitle">All three keep the same destinations and core navigation. Choose the atmosphere you want people to feel when they open the app.</p>
+
+<div class="cards direction-grid">
+  <div class="card direction editorial" data-choice="cinematic-editorial" onclick="toggleSelect(this)">
+    <div class="phone">
+      <div class="hero">
+        <div class="topline"><span>ROAM</span><span>☰</span></div>
+        <div><h3>Find your next story.</h3><p>Curated escapes for curious travellers</p></div>
+      </div>
+      <div class="body">
+        <div class="search">⌕ &nbsp; Where do you want to go?</div>
+        <div class="chips"><span class="chip active">For you</span><span class="chip">Culture</span><span class="chip">Nature</span></div>
+        <div class="small-title"><span>Handpicked journeys</span><span>View all</span></div>
+        <div class="mini-cards"><div class="mini" style="background-image:url('/files/kyoto_temples.jpg')">Kyoto after rain</div><div class="mini" style="background-image:url('/files/marrakech_souk.jpg')">Marrakech</div></div>
+      </div>
+    </div>
+    <div class="card-body"><h3>A · Cinematic Editorial</h3><p>Warm, premium, story-led and immersive. Best fit for the existing photography.</p><span class="badge">Recommended</span></div>
+  </div>
+
+  <div class="card direction tropical" data-choice="vibrant-adventure" onclick="toggleSelect(this)">
+    <div class="phone">
+      <div class="hero">
+        <div class="topline"><span>WANDER</span><span>◎</span></div>
+        <div><h3>Go somewhere unforgettable.</h3><p>Big color, quick discovery, joyful energy</p></div>
+      </div>
+      <div class="body">
+        <div class="search">🔎 &nbsp; Search beaches, cities, trails</div>
+        <div class="chips"><span class="chip active">Trending</span><span class="chip">Beach</span><span class="chip">Food</span></div>
+        <div class="small-title"><span>Popular right now</span><span>Explore</span></div>
+        <div class="mini-cards"><div class="mini" style="background-image:url('/files/marrakech_souk.jpg')">Souk colors</div><div class="mini" style="background-image:url('/files/kyoto_temples.jpg')">Kyoto</div></div>
+      </div>
+    </div>
+    <div class="card-body"><h3>B · Vibrant Adventure</h3><p>Energetic teal and coral, bold cards, playful motion and social-app momentum.</p><span class="badge">High energy</span></div>
+  </div>
+
+  <div class="card direction alpine" data-choice="calm-explorer" onclick="toggleSelect(this)">
+    <div class="phone">
+      <div class="hero">
+        <div class="topline"><span>NORTH</span><span>◇</span></div>
+        <div><h3>Travel slowly. Remember deeply.</h3><p>Quiet recommendations for meaningful trips</p></div>
+      </div>
+      <div class="body">
+        <div class="search">⌕ &nbsp; Discover a peaceful escape</div>
+        <div class="chips"><span class="chip active">Seasonal</span><span class="chip">Wellness</span><span class="chip">Scenic</span></div>
+        <div class="small-title"><span>Places to breathe</span><span>See all</span></div>
+        <div class="mini-cards"><div class="mini" style="background-image:url('/files/kyoto_temples.jpg')">Temple mornings</div><div class="mini" style="background-image:url('/files/homepage_background.jpg')">Open road</div></div>
+      </div>
+    </div>
+    <div class="card-body"><h3>C · Calm Explorer</h3><p>Cool, spacious and trustworthy. Strong for itinerary and practical travel planning.</p><span class="badge">Quiet confidence</span></div>
+  </div>
+</div>

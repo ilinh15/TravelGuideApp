@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - --entitlements /Users/ilinh77/Documents/GitHub/TravelGuideApp/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/Entitlements.xcent /Users/ilinh77/Documents/GitHub/TravelGuideApp/bin/Debug/net10.0-maccatalyst/maccatalyst-arm64/TravelGuideApp.app
